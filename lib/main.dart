@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:github_demo/src/app/theme.dart';
 
 import 'package:github_demo/src/modules/issues/pages/issues_page.dart';
 import 'package:github_demo/src/providers/preferences_providers.dart';
@@ -7,12 +8,9 @@ import 'package:github_demo/src/providers/preferences_providers.dart';
 import 'package:github_demo/src/services/auth/credentials_repository.dart';
 import 'package:github_demo/src/services/auth/github_repository.dart';
 import 'package:github_demo/src/services/preferences/preferences_repository.dart';
-import 'package:github_demo/src/utils/theme.dart';
 import 'package:github_demo/src/widgets/loading_screen.dart';
 
-import 'package:layout/layout.dart';
-import 'package:nested/nested.dart';
-import 'package:provider/provider.dart';
+import 'package:github_demo/resources.dart';
 
 import 'src/providers/auth_provider.dart';
 import 'src/providers/user_provider.dart';
@@ -57,38 +55,8 @@ class GithubApp extends StatelessWidget {
         return MaterialApp(
           title: 'GitHub GraphQL API Client',
           debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            primarySwatch: Colors.blue,
-            visualDensity: adaptivePlatformDensity,
-            primaryTextTheme: Typography.englishLike2018.apply(
-                displayColor: Colors.black,
-                bodyColor: Colors.black.withOpacity(0.8)),
-            accentTextTheme: Typography.englishLike2018.apply(
-                displayColor: Colors.white,
-                bodyColor: Colors.white.withOpacity(0.8)),
-            textTheme: Typography.englishLike2018.apply(
-                displayColor: Colors.black,
-                bodyColor: Colors.black.withOpacity(0.8)),
-            cardTheme: CardTheme(
-              clipBehavior: Clip.antiAlias,
-              elevation: 8,
-              shadowColor: Colors.black38,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-          ),
-          darkTheme: ThemeData(
-            visualDensity: adaptivePlatformDensity,
-            brightness: Brightness.dark,
-            primarySwatch: Colors.blue,
-            cardTheme: CardTheme(
-              clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
-          ),
+          theme: Themes.theme,
+          darkTheme: Themes.darkTheme,
           themeMode: context.select((PreferencesProvider p) => p.themeMode),
           builder: (context, child) {
             return Layout(

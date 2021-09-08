@@ -1,8 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:github_demo/src/providers/preferences_providers.dart';
-import 'package:github_demo/src/utils/theme.dart';
-import 'package:provider/provider.dart';
+import 'package:github_demo/resources.dart';
 
 class ThemeSettingsPopup extends StatelessWidget {
   final Widget child;
@@ -33,7 +32,7 @@ class ThemeSettingsPopup extends StatelessWidget {
                             ?.color
                             ?.withOpacity(0.5),
                       ),
-                      const SizedBox(width: 20),
+                       const Gap(20),
                       Text(themeMode.toLocalString(context)),
                     ],
                   ),
