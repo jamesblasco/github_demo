@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:github_demo/src/utils/theme.dart';
+import 'package:github_demo/resources.dart';
 
 class LoginPage extends StatelessWidget {
   final VoidCallback onLogin;

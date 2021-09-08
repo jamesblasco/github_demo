@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:github_demo/src/modules/issues/providers/seen_issues_provider.dart';
 import 'package:github_demo/src/services/github/queries/queries.dart';
-import 'package:intl/intl.dart';
-import 'package:layout/layout.dart';
-import 'package:provider/provider.dart';
-import 'package:github_demo/src/utils/theme.dart';
+import 'package:github_demo/resources.dart';
 
 class IssueTile extends StatelessWidget {
   final VoidCallback? onTap;

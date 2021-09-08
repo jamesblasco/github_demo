@@ -1,12 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chips_input/flutter_chips_input.dart';
-import 'package:gap/gap.dart';
 import 'package:github_demo/src/modules/issues/providers/issues_provider.dart';
 import 'package:github_demo/src/providers/user_provider.dart';
-import 'package:github_demo/src/utils/theme.dart';
-import 'package:layout/layout.dart';
-import 'package:provider/provider.dart';
+import 'package:github_demo/resources.dart';
 
 class FiltersSheet extends StatelessWidget {
   const FiltersSheet({Key? key}) : super(key: key);

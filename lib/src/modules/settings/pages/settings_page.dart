@@ -3,12 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:github_demo/src/modules/settings/widgets/theme_mode_popup.dart';
 import 'package:github_demo/src/providers/auth_provider.dart';
 import 'package:github_demo/src/providers/preferences_providers.dart';
-import 'package:github_demo/src/widgets/navigation_bar.dart';
-import 'package:layout/layout.dart';
-import 'package:provider/provider.dart';
 import 'package:github_demo/src/providers/user_provider.dart';
-import 'package:github_demo/src/utils/theme.dart';
-
+import 'package:github_demo/src/widgets/navigation_bar.dart';
+import 'package:github_demo/resources.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -66,7 +63,7 @@ class SettingsPage extends StatelessWidget {
                         ),
                       ),
                     ),
-                   const  Divider(height: 1),
+                    const Divider(height: 1),
                     ListTile(
                       title: Text(
                         'Log out',

@@ -1,17 +1,12 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 
 import 'package:github_demo/src/modules/issues/providers/issue_provider.dart';
 
 import 'package:github_demo/src/services/github/github_repository.dart';
-import 'package:github_demo/src/utils/alert.dart';
 import 'package:github_demo/src/widgets/navigation_bar.dart';
-import 'package:intl/intl.dart';
-import 'package:layout/layout.dart';
-import 'package:provider/provider.dart';
-import 'package:github_demo/src/utils/theme.dart';
+import 'package:github_demo/resources.dart';
 import 'package:github_demo/src/services/github/queries/queries.dart';
 import 'package:share_plus/share_plus.dart';
 

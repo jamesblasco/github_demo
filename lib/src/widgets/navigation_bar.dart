@@ -2,7 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:github_demo/src/utils/theme.dart';
+import 'package:github_demo/src/utils/utils.dart';
 
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';

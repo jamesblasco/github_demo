@@ -1,7 +1,8 @@
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:gap/gap.dart';
+import 'package:github_demo/resources.dart';
+import 'package:github_demo/src/app/theme.dart';
 
 import 'package:github_demo/src/modules/issues/providers/issues_provider.dart';
 import 'package:github_demo/src/modules/issues/providers/seen_issues_provider.dart';
@@ -11,13 +12,9 @@ import 'package:github_demo/src/modules/issues/widgets/sort_modal_sheet.dart';
 import 'package:github_demo/src/modules/settings/pages/settings_page.dart';
 import 'package:github_demo/src/services/github/github_repository.dart';
 import 'package:github_demo/src/services/preferences/preferences_repository.dart';
-import 'package:github_demo/src/utils/alert.dart';
-import 'package:github_demo/src/utils/theme.dart';
+
 import 'package:github_demo/src/widgets/navigation_bar.dart';
 import 'package:github_demo/src/widgets/refresh_control.dart';
-import 'package:layout/layout.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:provider/provider.dart';
 import 'package:github_demo/src/services/github/queries/queries.dart';
 import 'issue_detail_page.dart';
 
