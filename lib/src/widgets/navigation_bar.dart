@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:ui';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:github_demo/resources.dart';
 import 'package:github_demo/src/utils/utils.dart';
 
 import 'package:flutter/material.dart';
@@ -308,7 +309,7 @@ class TiqBarSliverDelegate extends SliverPersistentHeaderDelegate {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  const SizedBox(height: 10),
+                  const Gap(10),
                   if (header != null)
                     AnimatedOpacity(
                       duration: const Duration(milliseconds: 100),
@@ -328,7 +329,7 @@ class TiqBarSliverDelegate extends SliverPersistentHeaderDelegate {
                       child: title,
                     ),
                   ),
-                  const SizedBox(height: 16),
+                   const Gap(16),
                 ],
               ),
             ),

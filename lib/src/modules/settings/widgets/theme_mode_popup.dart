@@ -32,7 +32,7 @@ class ThemeSettingsPopup extends StatelessWidget {
                             ?.color
                             ?.withOpacity(0.5),
                       ),
-                      const SizedBox(width: 20),
+                       const Gap(20),
                       Text(themeMode.toLocalString(context)),
                     ],
                   ),

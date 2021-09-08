@@ -39,14 +39,14 @@ class IssueTile extends StatelessWidget {
                     data.author!.avatarUrl.value,
                   ),
                 ),
-                const SizedBox(width: 4),
+                const Gap(4),
                 Flexible(child:Text(
                   'by @${data.author!.login} - ' +
                       DateFormat('MMM d, yyyy').format(
                         DateTime.parse(data.publishedAt!.value),
                       ),
                 ),),
-                const SizedBox(width: 8),
+                 const Gap(8),
                 if (data.labels!.edges!.isNotEmpty)
                   Chip(
                     backgroundColor:
