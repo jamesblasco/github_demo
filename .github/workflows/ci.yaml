@@ -1,0 +1,63 @@
+name: Github Demo CI
+
+on:
+  push:
+    branches: [master]
+    paths-ignore:
+      - "docs/**"
+      - "website/**"
+      - "**.md"
+  pull_request:
+    branches: ['**']
+    paths-ignore:
+      - "docs/**"
+      - "website/**"
+      - "**.md"
+      
+jobs:
+  analyze:
+    name: analyze
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: "Set env keys"
+        env: 
+          GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
+          GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+        run: |
+          ./.github/workflows/scripts/env-files.sh
+
+      - name: "Pub get"
+        run: flutter pub get
+
+      - name: "Run Analyze"
+        run: flutter analyze
+     
+
+  test:
+    name: test
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: subosito/flutter-action@v1
+        with:
+          channel: 'stable'
+
+      - name: "Set env keys"
+        env: 
+          GH_CLIENT_ID: ${{ secrets.GH_CLIENT_ID }}
+          GH_CLIENT_SECRET: ${{ secrets.GH_CLIENT_SECRET }}
+        run: |
+          ./.github/workflows/scripts/env-files.sh
+
+      - name: "Pub get"
+        run: flutter pub get
+
+      - name: "Run test"
+        run: flutter test

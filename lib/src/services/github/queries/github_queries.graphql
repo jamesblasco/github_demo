@@ -1,0 +1,191 @@
+query ViewerDetail {
+  viewer {
+    login
+    avatarUrl
+    name
+  }
+}
+
+
+   
+# query Issues($owner: String!, $name: String!, $count: Int!, $orderDirection: OrderDirection!, $orderField: IssueOrderField!, $filterBy: IssueFilters!){
+#   repository(owner: $owner, name: $name) {
+#     nameWithOwner
+#     url
+#     issues(
+#       first: $count,
+#       filterBy: $filterBy,
+#       orderBy: {
+#         direction: $orderDirection,
+#         field: $orderField
+#       }) {
+#       edges {
+#         node {
+#           __typename
+#           id
+#           number
+#           publishedAt
+#           updatedAt
+#           title
+#           url
+#           labels(first:5) {
+#             edges {
+#               node {
+#                 name
+#                 color
+#               }
+#             }
+#           }
+#           author {
+#             login
+#             avatarUrl
+#             url
+#           }
+#           comments {
+#             totalCount
+#           }
+#         }
+#       }
+#     }
+#   }
+# }
+
+
+query Issues($query: String!, $count: Int!){
+  search(
+    type: ISSUE,
+    query: $query,
+    last: $count
+  ) {
+    edges {
+      node {
+        ... on Issue {
+          __typename
+          id
+          number
+          publishedAt
+          updatedAt
+          title
+          url
+          labels(first:5) {
+            edges {
+              node {
+                name
+                color
+              }
+            }
+          }
+          author {
+            login
+            avatarUrl
+            url
+             }
+          comments {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+query IssueDetails($owner: String!, $name: String!, $number: Int!){
+  repository(owner: $owner, name: $name) {
+    issue(number: $number) {
+      __typename
+      id
+      number
+      publishedAt
+      updatedAt
+      title
+      url
+      bodyText
+      labels(first:5) {
+        edges {
+          node {
+            name
+            color
+          }
+        }
+      }
+      author {
+        login
+        avatarUrl
+        url
+      }
+      comments(first: 100)  {
+        totalCount
+        edges {
+          node {
+            body
+            createdAt
+            lastEditedAt
+            author {
+              login
+              avatarUrl
+              url
+            }
+          }
+        }
+      }  
+    }
+  }
+}
+
+query AssignedIssues($query: String!, $count: Int!) {
+  search(query: $query, type: ISSUE, first: $count) {
+    edges {
+      node {
+        ... on Issue {
+          __typename
+          repository {
+            nameWithOwner
+            url
+          }
+          number
+          url
+          title
+          author {
+            login
+            url
+          }
+          labels(last: 10) {
+            nodes {
+              name
+              color
+            }
+          }
+          comments {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+query Repositories($count: Int!) {
+  viewer {
+    repositories(
+      first: $count
+      orderBy: { field: UPDATED_AT, direction: DESC }
+    ) {
+      nodes {
+        name
+        description
+        isFork
+        isPrivate
+        stargazers {
+          totalCount
+        }
+        url
+        issues {
+          totalCount
+        }
+        owner {
+          login
+          avatarUrl
+        }
+      }
+    }
+  }
+}
