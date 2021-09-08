@@ -1,0 +1,27 @@
+
+
+default_platform(:android)
+
+platform :android do
+  desc "Runs all the tests"
+  lane :test do
+    gradle(task: "test")
+  end
+
+  desc "Submit a new Beta Build to Firebase App Distribution"
+  lane :distribute do
+    firebase_app_distribution(
+        app: "1:582608957711:android:8f04bc21ed2df6996e4e7a",
+        release_notes: "Hello there!",
+        groups: "interview",
+        apk_path: "../build/app/outputs/apk/release/app-release.apk"
+    )
+
+  end
+
+  desc "Deploy a new version to the Google Play"
+  lane :deploy do
+    gradle(task: "clean assembleRelease")
+    upload_to_play_store
+  end
+end
